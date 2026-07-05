@@ -19,21 +19,29 @@ const banner = (
 
 const navbar = (
   <Navbar
-    logo={<b>DinoMem</b>}
+    logo={
+      <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/egg-accent.png" alt="" width={22} height={22} style={{ display: 'block' }} />
+        <b>DinoMem</b>
+      </span>
+    }
     projectLink="https://github.com/DinoMem/dinomem-sdk"
   />
 )
 
 const footer = (
   <Footer>
-    Apache 2.0 {new Date().getFullYear()} © DinoMem
+    {new Date().getFullYear()} © DinoMem — AGPL-3.0 core · Apache-2.0 SDKs
   </Footer>
 )
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
-      <Head />
+      <Head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      </Head>
       <body>
         <Layout
           banner={banner}
